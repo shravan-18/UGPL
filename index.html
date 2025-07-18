@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <title>Uncertainty-Guided Progressive Learning for Evidence-Based Classification in Computed Tomography</title> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Uncertainty-Guided Progressive Learning for Evidence-Based Classification in Computed Tomography</h1>
+          <!-- Authors Section -->
+          <div class="publication-authors" style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">
+            <span class="author-block">
+              <a href="https://shravfolio.vercel.app" style="text-decoration: none; color: inherit;">Shravan&nbsp;Venkatraman</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://pavan-0725.github.io/lka/" style="text-decoration: none; color: inherit;">Pavan&nbsp;Kumar&nbsp;S</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://rakesh-123-cryp.github.io/Rakesh.github.io/" style="text-decoration: none; color: inherit;">Rakesh&nbsp;Raj&nbsp;Madavan</a><sup>2*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=nLYLiE8AAAAJ&hl=en&oi=ao" style="text-decoration: none; color: inherit;">Chandrakala&nbsp;S</a><sup>2</sup>
+            </span>
+          </div>
+
+          <!-- Affiliations Section -->
+          <div class="publication-authors" style="font-size: 0.95rem; color: #555; line-height: 1.6;">
+            <span class="author-block"><sup>1</sup>Vellore Institute of Technology, Chennai, India</span><br>
+            <span class="author-block"><sup>2</sup>Shiv Nadar University, Chennai, India</span><br>
+            <span class="author-block" style="font-size: 0.9rem; color: #777; margin-top: 0.3rem;">* Equal contribution</span>
+          </div>
+
+          <br>
+          <h2 class="subtitle has-text-centered">
+            <b style="color:tomato;">ICCV 2025 Workshops (CVAMD)</b>
+          </h2>
+          <div class="column has-text-centered" style="margin-top: -15px;">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Poster Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-images"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/shravan-18/UGPL" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        UGPL guides CT image classification by leveraging uncertainty estimates to focus analysis on ambiguous regions through progressive, multi-scale refinement.  
+      </h2>
+    </div>
+  </div>
+</section>
+
+<br>
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="./assets/architecture.png" alt="Teaser" style="width: 850px; height: auto;">
+</div>
+
+<br>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Accurate classification of computed tomography (CT) images is essential for diagnosis and treatment planning, but existing methods often struggle with the subtle and spatially diverse nature of pathological features. Current approaches typically process images uniformly, limiting their ability to detect localized abnormalities that require focused analysis. We introduce UGPL, an uncertainty-guided progressive learning framework that performs a global-to-local analysis by first identifying regions of diagnostic ambiguity and then conducting detailed examination of these critical areas. Our approach employs evidential deep learning to quantify predictive uncertainty, guiding the extraction of informative patches through a non-maximum suppression mechanism that maintains spatial diversity. This progressive refinement strategy, combined with an adaptive fusion mechanism, enables UGPL to integrate both contextual information and fine-grained details. Experiments across three CT datasets demonstrate that UGPL consistently outperforms state-of-the-art methods, achieving improvements of 3.29%, 2.46%, and 8.08% in accuracy for kidney abnormality, lung cancer, and COVID-19 detection, respectively. Our analysis shows that the uncertainty-guided component provides substantial benefits, with performance dramatically increasing when the full progressive learning pipeline is implemented.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<center>
+  <img src="./assets/arch2.png" alt="Model Architecture" style="width:850px;height:360px;">
+</center>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><b>Method</b></h2>
+        <div class="content has-text-justified">
+          <p>
+          We introduce Uncertainty-Guided Progressive Learning (UGPL), a novel framework that mimics diagnostic behavior by performing global analysis followed by focused examination of uncertain regions. UGPL addresses limitations of uniform processing by dynamically allocating computational resources where needed. Our framework first employs a global uncertainty estimator to perform initial classification and generate pixel-wise uncertainty maps, then selects high-uncertainty regions for detailed analysis through a local refinement network. These multi-resolution analyses are combined via an adaptive fusion module that weights predictions based on confidence. Unlike existing methods that treat uncertainty merely as an output signal, UGPL explicitly uses it to guide computational focus, maintaining efficiency while improving performance on diagnostically challenging regions. UGPL processes the input CT image to produce both classification probabilities and an uncertainty map that guides the extraction of high-uncertainty patches using non-maximum suppression. Each patch undergoes high-resolution analysis through a local refinement network, producing patch-specific classification scores and confidence estimates. The adaptive fusion module then integrates global and local predictions using learned weights based on their estimated reliability. Multiple specialized loss functions are jointly optimized, guiding components to work in tandem, adapt according to diagnostic difficulty, and improve performance over uniform processing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
+
+<section class="section"> 
+  <div class="container is-max-desktop"> 
+    <h2 class="title is-3 has-text-centered"><b>Results</b></h2> 
+
+    <div style="text-align: center;">
+      <p style="text-align: justify; margin: 0 auto 20px auto; max-width: 850px;">
+      The LM performs poorly across all tasks, particularly for kidney abnormalities (40.57%) and lung cancer classification (51.22%), as local patches alone lack sufficient context and focus on irrelevant regions without global guidance. The following figures shows performance trends across tasks, with COVID-19 detection showing the most significant gains from LM to FM.    
+      </p>
+    </div>
+
+
+    <br> 
+    <center> 
+      <img src="./assets/components_viz.png" alt="Qualitative Comparison" style="width:600px;height:500px;"> 
+    </center> 
+    <br>
+
+
+    <div style="text-align: center;">
+      <p style="text-align: justify; margin: 0 auto 20px auto; max-width: 850px;">
+          The following table and ROC curves show that for COVID-19, GM and FM achieve similar AUC scores (0.901 vs. 0.900). For lung cancer, FM achieves slight improvements across classes, especially for benign cases (0.991 vs. 0.992). For kidney cases, FM improves performance for most classes, including kidney stones (0.984 vs. 0.986).
+      </p>
+
+      <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 12px;">
+  <tr>
+    <th style="border: 1px solid black; padding: 8px; text-align: left; vertical-align: middle;" rowspan="2">Models</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="2">Kidney Abnormalities</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="2">Lung Cancer Type</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="2">COVID Presence</th>
+  </tr>
+  <tr>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">Accuracy</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">F1</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">Accuracy</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">F1</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">Accuracy</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">F1</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">ShuffleNetV2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.96 ± 0.0085</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.95 ± 0.0092</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.94 ± 0.0127</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.91 ± 0.0143</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.69 ± 0.0234</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.67 ± 0.0251</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">VGG16</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.89 ± 0.0156</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.88 ± 0.0173</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.95 ± 0.0098</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.91 ± 0.0165</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.48 ± 0.0287</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.47 ± 0.0306</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">ConvNeXt</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.81 ± 0.0189</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.80 ± 0.0195</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.95 ± 0.0076</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.95 ± 0.0084</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.61 ± 0.0267</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.59 ± 0.0278</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">DenseNet121</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.94 ± 0.0102</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.93 ± 0.0118</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.90 ± 0.0171</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.89 ± 0.0176</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.78 ± 0.0198</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.76 ± 0.0213</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">DenseNet201</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.95 ± 0.0093</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.94 ± 0.0106</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.84 ± 0.0203</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.83 ± 0.0218</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.76 ± 0.0206</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.74 ± 0.0229</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">EfficientNetB0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.95 ± 0.0078</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.94 ± 0.0089</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.95 ± 0.0081</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.95 ± 0.0073</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.73 ± 0.0221</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.71 ± 0.0238</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">MobileNetV2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.87 ± 0.0179</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.85 ± 0.0195</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.70 ± 0.0267</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.69 ± 0.0283</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.70 ± 0.0241</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.68 ± 0.0256</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">ViT</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.94 ± 0.0154</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.92 ± 0.0167</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.51 ± 0.0389</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.22 ± 0.0456</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.56 ± 0.0312</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.55 ± 0.0318</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">Swin</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.68 ± 0.0298</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.40 ± 0.0421</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.60 ± 0.0334</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.41 ± 0.0398</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.53 ± 0.0331</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.53 ± 0.0329</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">DeiT</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.92 ± 0.0162</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.90 ± 0.0178</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.66 ± 0.0312</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.46 ± 0.0387</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.44 ± 0.0356</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.35 ± 0.0412</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">CoaT</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.98 ± 0.0067</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.98 ± 0.0072</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.95 ± 0.0089</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.93 ± 0.0112</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.68 ± 0.0254</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.66 ± 0.0267</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">CrossViT</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.97 ± 0.0087</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.97 ± 0.0094</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.58 ± 0.0356</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.39 ± 0.0423</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.62 ± 0.0289</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.48 ± 0.0378</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">CRNet</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">-</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">-</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">-</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">-</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.73 ± 0.0218</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.76 ± 0.0203</td>
+  </tr>
+  <tr style="background-color: #e6e6e6;">
+    <td style="border: 1px solid black; padding: 8px; font-weight: bold;">UGPL (Ours)</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.99 ± 0.0023</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.99 ± 0.0031</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.98 ± 0.0047</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.97 ± 0.0052</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.81 ± 0.0134</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.79 ± 0.0147</td>
+  </tr>
+</table>
+
+    </div>
+
+    <br> 
+    <center> 
+      <img src="./assets/ROC.png" alt="ROC Curves" style="width:90%;"> 
+    </center> 
+    <br>
+
+    
+    <div style="text-align: center;">
+      <p style="text-align: justify; margin: 0 auto 20px auto; max-width: 850px;">
+      To analyze the contribution of each component in our progressive learning framework, we compare four configurations: (1) a global-only setup that uses the global uncertainty estimator without local refinement; (2) a no uncertainty guidance (No UG) variant, where patches are selected randomly instead of using uncertainty maps; (3) a fixed patches configuration that uses predefined patch locations rather than adaptive selection; and (4) the full model, which includes all components of the UGPL framework.
+      The following table shows our full model consistently outperforming all reduced variants by substantial F1 margins. On the COVID dataset, all ablations cause dramatic performance drops, with the global-only variant achieving only 14.95% F1. For lung cancer detection, the full model obtains 97.64% F1, while the global-only setup drops to 34.19%. The kidney dataset shows smaller yet significant gaps, with the full model reaching 99.6% F1 versus 58.7% for the best ablated configuration (fixed patches). Interestingly, No UG and fixed patches sometimes perform worse than the global-only model, showing that naively adding local components without proper guidance can be detrimental and highlighting the importance of uncertainty-guided patch selection.
+      </p>
+    </div>
+
+    <br>
+
+    <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 12px;">
+  <tr>
+    <th style="border: 1px solid black; padding: 8px; text-align: left; vertical-align: middle;" rowspan="2">Configuration</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="7">Loss Weights</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="2">COVID Presence</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="2">Lung Cancer Type</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;" colspan="2">Kidney Abnormalities</th>
+  </tr>
+  <tr>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">λ<sub>f</sub></th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">λ<sub>g</sub></th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">λ<sub>l</sub></th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">λ<sub>u</sub></th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">λ<sub>c</sub></th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">λ<sub>co</sub></th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">λ<sub>d</sub></th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">Accuracy</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">F1</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">Accuracy</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">F1</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">Accuracy</th>
+    <th style="border: 1px solid black; padding: 8px; text-align: center;">F1</th>
+  </tr>
+  <tr style="background-color: #e6e6e6;">
+    <td style="border: 1px solid black; padding: 8px;">C1: Baseline</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.8108</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.7903</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.9817</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.9764</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.9971</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.9945</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C2: Local Emphasis</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7946</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7758</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9695</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9641</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9928</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9903</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C3: Global-Centric</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7568</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7402</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9634</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9576</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9876</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9832</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C4: Uncertainty Focus</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.6</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.8243</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: red; font-weight: bold;">0.8057</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9756</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9687</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.9953</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.9931</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C5: Consistency-Driven</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7892</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7689</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.9786</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.9723</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9913</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9889</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C6: Balanced High</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.4</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.4</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.8051</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.7836</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.9801</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: blue; font-weight: bold;">0.9739</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.9942</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center; color: green; font-weight: bold;">0.9918</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C7: Diversity-Enhanced</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.4</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7784</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7569</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9667</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9602</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9895</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9856</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C8: Confidence-Calibrated</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.3</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.4</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7973</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7798</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9753</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9695</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9923</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9891</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C9: Conservative</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.5</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.25</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.25</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.15</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.1</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.05</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.05</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7486</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7312</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9581</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9524</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9837</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9803</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 8px;">C10: Aggressive</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">2.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">1.0</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.6</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.4</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.2</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.8023</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.7827</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9728</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9674</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9932</td>
+    <td style="border: 1px solid black; padding: 8px; text-align: center;">0.9907</td>
+  </tr>
+</table>
+
+    <br> <br>
+
+    <div style="text-align: center;">
+      <p style="text-align: justify; margin: 0 auto 20px auto; max-width: 850px;">
+      The following table compares ten loss weight configurations across datasets. The baseline configuration (C1) with balanced weights performs best overall (fused: 1.0, global/local: 0.5 each, uncertainty: 0.3, consistency: 0.2, confidence/diversity: 0.1 each). Configurations emphasizing either global or local branches underperform, confirming the necessity of combining global context with local detail. Increased uncertainty weighting (C4) improves COVID detection (82.43% accuracy, 80.57% F1) but slightly reduces performance on Lung and Kidney datasets where target features are more prominent. C5 (Consistency-Driven) excels on the Lung dataset (97.86% accuracy) where structural patterns are clearer, while uniform scaling of all components (C9 & C10) shows no improvement, indicating that relative balance matters more than absolute weight values.
+    </p>
+    </div>
+
+    <br> 
+    
+    <table style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 0.95rem; text-align: center; margin-bottom: 1rem;">
+      <caption style="caption-side: top; font-weight: bold; margin-bottom: 0.5rem;">
+        F1 Scores across patch sizes and number of extracted patches. <strong>Bolded values</strong> indicate results from C1 configuration.
+      </caption>
+      <thead>
+        <tr style="background-color: #f0f0f0;">
+          <th style="border: 1px solid #ccc; padding: 6px;">Patch Size</th>
+          <th style="border: 1px solid #ccc; padding: 6px;">Patches</th>
+          <th style="border: 1px solid #ccc; padding: 6px;">Kidney</th>
+          <th style="border: 1px solid #ccc; padding: 6px;">Lung</th>
+          <th style="border: 1px solid #ccc; padding: 6px;">COVID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="3" style="border: 1px solid #ccc; padding: 6px;">32</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">2</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9586</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.8869</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.7161</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ccc; padding: 6px;">3</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9673</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9195</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.7368</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ccc; padding: 6px;">4</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9541</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.8756</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.7454</td>
+        </tr>
+        <tr>
+          <td rowspan="3" style="border: 1px solid #ccc; padding: 6px;">64</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">2</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9824</td>
+          <td style="border: 1px solid #ccc; padding: 6px;"><strong>0.9764</strong></td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.7521</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ccc; padding: 6px;">3</td>
+          <td style="border: 1px solid #ccc; padding: 6px;"><strong>0.9945</strong></td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.8671</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.7368</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ccc; padding: 6px;">4</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9765</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9343</td>
+          <td style="border: 1px solid #ccc; padding: 6px;"><strong>0.7903</strong></td>
+        </tr>
+        <tr>
+          <td rowspan="3" style="border: 1px solid #ccc; padding: 6px;">96</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">2</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9622</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.8712</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.7372</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ccc; padding: 6px;">3</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9701</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9099</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.7262</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ccc; padding: 6px;">4</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.9418</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.8717</td>
+          <td style="border: 1px solid #ccc; padding: 6px;">0.6505</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{UGPL2025,
+  author    = {Venkatraman, Shravan and Kumar S, Pavan and Raj, Rakesh and S, Chandrakala},
+  title     = {UGPL: Uncertainty-Guided Progressive Learning for Evidence-Based Classification in Computed Tomography},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+  month     = {October},
+  year      = {2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

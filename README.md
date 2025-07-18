@@ -1,13 +1,15 @@
-# UGPL: Uncertainty-Guided Progressive Learning for CT Classification
+# UGPL: Uncertainty-Guided Progressive Learning for Evidence-Based Classification in Computed Tomography
 
 <div align="center">
-<img src="assets/ICCV_2025_logo.png" width="70%"/>
+<img src="assets/ICCV_2025_logo.png" width="75%"/>
 </div>
 
 > **UGPL: Uncertainty-Guided Progressive Learning for Evidence-Based Classification in Computed Tomography**  
 > *Shravan Venkatraman\*, Pavan Kumar S\*, Rakesh Raj\*, Chandrakala S*  
 > Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops 2025  
 > *(\* Equal Contribution)*
+
+#### [project page](https://github.com/shravan-18/UGPL) | [paper](https://github.com/shravan-18/UGPL)
 
 ## Abstract
 
