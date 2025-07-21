@@ -9,7 +9,7 @@
 > Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops 2025  
 > *(\* Equal Contribution)*
 
-#### [project page](https://github.com/shravan-18/UGPL) | [paper](https://github.com/shravan-18/UGPL)
+#### [project page](https://shravan-18.github.io/UGPL/) | [paper](https://arxiv.org/abs/2507.14102)
 
 ## Abstract
 
